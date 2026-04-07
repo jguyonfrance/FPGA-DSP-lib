@@ -1,8 +1,8 @@
 ----------------------------------------------------------------------------------
--- Company: MGDK-BRAIN
+-- Company: 
 -- Engineer: J.Guyon
 -- 
--- Create Date: 03.01.2025 14:00:00
+-- Create Date: 10.09.2025 14:49:57
 -- Design Name: 
 -- Module Name:
 -- Project Name: 
@@ -26,6 +26,9 @@ library xil_defaultlib;
    use xil_defaultlib.all;
 
 
+--============================================================================--
+--                          DECLARATION DE L ENTITE                           --
+--============================================================================--
 entity AD4857_config is
   generic
    (     
@@ -55,8 +58,8 @@ architecture Behavioral of AD4857_config is
   SIGNAL s_spi_ena            : STD_LOGIC;                              --enable for SPI component
   SIGNAL s_spi_tx_data        : STD_LOGIC_VECTOR(23 DOWNTO 0);           --transmit data for SPI component
   SIGNAL s_spi_rx_data        : STD_LOGIC_VECTOR(23 DOWNTO 0);           --received data from SPI component
-  SIGNAL s_write_config_start_n            : STD_LOGIC;                        
-  SIGNAL s_write_config_start            : STD_LOGIC;                             
+  SIGNAL s_write_config_start_n            : STD_LOGIC;                              --enable for SPI component
+  SIGNAL s_write_config_start            : STD_LOGIC;                              --enable for SPI component
 
     
   --declare SPI Master component

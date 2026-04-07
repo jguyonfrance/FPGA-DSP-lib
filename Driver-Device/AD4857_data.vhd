@@ -44,19 +44,10 @@
 --                       |      o_adc_cnv  |->
 --                       |_________________|
 --
-library IEEE;
-   use IEEE.std_logic_1164.all;
-   use IEEE.std_logic_unsigned.all;
-   use IEEE.std_logic_arith.all;
 
--- library xil_defaultlib;
-   -- use xil_defaultlib.all;
-
--- Library UNisIM;
--- use UNisIM.vcomponents.all;
--- library UNIMACRO;
--- use unimacro.Vcomponents.all;
-
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 entity AD4857_data is
   generic
