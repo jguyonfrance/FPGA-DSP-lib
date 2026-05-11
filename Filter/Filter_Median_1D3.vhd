@@ -54,7 +54,7 @@ signal s_data_n1: STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
 signal s_data_n2: STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
 
 signal s_o_data: STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
-signal s_table_in: STD_LOGIC_VECTOR(3 downto 0) := (others => '0');
+signal s_table_in: STD_LOGIC_VECTOR(2 downto 0) := (others => '0');
 
 
 begin
@@ -63,17 +63,19 @@ s_data_n0 <= i_data_n0;
 s_data_n1 <= i_data_n1;
 s_data_n2 <= i_data_n2;
 
-s_table_in(0) <= '1' when (s_data_n0 > s_data_n1) else '0';
+s_table_in(2) <= '1' when (s_data_n0 > s_data_n1) else '0';  
 s_table_in(1) <= '1' when (s_data_n1 > s_data_n2) else '0';
-s_table_in(2) <= '1' when (s_data_n0 > s_data_n2) else '0';
+s_table_in(0) <= '1' when (s_data_n0 > s_data_n2) else '0';
 
 
-with s_table_in select s_o_data <=      s_data_n2 when "101",
-                                        s_data_n1 when "000",
+with s_table_in select s_o_data <=      s_data_n1 when "000",
+                                        s_data_n1 when "001",
+                                        s_data_n2 when "010",
+                                        s_data_n0 when "011",
                                         s_data_n0 when "100",
-                                        s_data_n0 when "011",    
-                                        s_data_n1 when "111",
-                                        s_data_n0 when others;
+                                        s_data_n2 when "101", 
+                                        s_data_n1 when "110", 
+                                        s_data_n1 when others;
 
 process(i_clk)
 begin              
